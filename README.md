@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-OCSVLab is a security and privacy tool from the OwlSec suite.
+OCSVLab lets you explore and clean CSV and TSV files without a spreadsheet. It auto-detects the delimiter and column types, then lets you select columns, filter rows with simple expressions, sort, deduplicate and group data. It also produces column statistics and a data-quality report, and converts files to JSON or Markdown.
 
 ---
 
 ## ✨ Features
 
-- Standalone executable, no Python installation needed.
+- Auto-detects delimiter (comma, tab, semicolon, pipe) and column types (integer, numeric, bool, date, string)
+- Preview, column selection and row filtering with expressions (==, !=, ~, >, >=, AND/OR)
+- Sort by any column and remove duplicate rows
+- Column statistics (min/max/mean/median/stdev/percentiles) and top values for categorical columns
+- Group-by aggregates: count, sum, avg, min, max, distinct
+- Data-quality report (ragged rows, empty/duplicate columns, nulls, mixed types) and export to JSON / Markdown / CSV
 
 ---
 
@@ -38,8 +43,14 @@ OCSVLab is a security and privacy tool from the OwlSec suite.
 ## 🚀 Usage
 
 ```bash
-./OCSVLab
+./OCSVLab                                    # interactive menu
+./OCSVLab --file data.csv --schema
+./OCSVLab --file data.csv --filter "status == failed AND port > 1024"
+./OCSVLab --file data.csv --group country --agg count --on ip
+./OCSVLab --file data.csv --quality
 ```
+
+Run `./OCSVLab --help` for the full list of options.
 
 ---
 
